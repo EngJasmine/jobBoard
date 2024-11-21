@@ -1,0 +1,17 @@
+{% extends 'job_board/_base.html' %}
+{% load custom_filters %}
+
+{% load humanize %}
+{% block content %}
+<div class="w-10/12 mx-auto">
+    <p class="pb-6"><a href="{% url 'home' %}" class="border border-gray-400 rounded px-4 py-2 hover:bg-gray-200">Go back</a></p>
+    <h1 class="text-3xl font-semibold pb-4 ">{{posting.title}}</h1>
+    {% if posting.description|startswith:"https" %}
+        
+        <p class="underline underline-offset-2 text-blue-500 hover:text-blue-400"> <a href={{posting.description}}>{{posting.description}}</a></p>
+    {% else%}
+        
+        <p>{{posting.description}} </p>
+    {% endif%}
+</div>
+{% endblock content %}
